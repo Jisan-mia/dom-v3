@@ -28,16 +28,16 @@ main app coding
 import { questionsData } from "./data.js";
 import {submissionsData} from './data.js'
 
-console.log('working')
-
+appendQuestionAndSubmission();
 
 function appendQuestionAndSubmission() {
   const questionAndSubmission = getQuestionAndSubmission(questionsData, submissionsData);
 
-  console.log(questionAndSubmission)
+  const questionAndSubmissionByCategory = getQuestionAndSubmissionByCategory(questionAndSubmission)
+
+  console.log(questionAndSubmissionByCategory)
 }
 
-appendQuestionAndSubmission();
 
 
 function getQuestionAndSubmission (questions, submissions) {
@@ -65,13 +65,14 @@ function getQuestionAndSubmission (questions, submissions) {
 
 
 function getQuestionAndSubmissionByCategory (questionAndSubmission) {
-  const questionAndSubmissionByCategory = questions.reduce((categoryQuestions, question) => {
+  const categoryQuestions = {}
+  questionAndSubmission.forEach(( question) => {
     if(categoryQuestions[question.category]) {
       categoryQuestions[question.category].push(question)
     } else {
       categoryQuestions[question.category] = [question]
     }
-  }, {})
+  })
 
-  return questionAndSubmissionByCategory
+  return categoryQuestions
 }
