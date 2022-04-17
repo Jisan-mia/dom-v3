@@ -36,8 +36,55 @@ function appendQuestionAndSubmission() {
   const questionAndSubmissionByCategory = getQuestionAndSubmissionByCategory(questionAndSubmission)
 
   console.log(questionAndSubmissionByCategory)
+  const wrapper = document.getElementById('wrapper')
+
+  for(let [category, questions] of Object.entries(questionAndSubmissionByCategory)) {
+    const categoryDiv = createCategory(category, questions)
+    wrapper.append(categoryDiv)
+  }
+
 }
 
+
+function createCategory(category, questions) {
+  const categoryDiv = document.createElement('div');
+  categoryDiv.classList.add('category');
+
+  
+  let correctCount = 0;
+  questions.forEach(question => {
+    const questionElm = document.createElement('div');
+    questionElm.classList.add('question');
+
+    const statusElm = document.createElement('div');
+    statusElm.classList.add('status');
+    const statusCheck = question?.status?.toLowerCase().replace('_', '-')
+    statusElm.classList.add(statusCheck ?? 'unattempted')
+    questionElm.append(statusElm);
+
+    const questionNameElm = document.createElement('p');
+    questionNameElm.classList.add('question-name');
+    questionNameElm.textContent = question.name;
+    questionElm.append(questionNameElm);
+
+    const draggerElm = document.createElement('span')
+    draggerElm.classList.add('dragger-item');
+    questionElm.append(draggerElm)
+
+    if(question?.status == 'CORRECT') {
+      correctCount++
+    }
+
+    categoryDiv.append(questionElm)
+  })
+
+  const h2Elem = document.createElement('h2');
+  h2Elem.textContent = `${category} - ${correctCount} / ${questions.length}`;
+
+  categoryDiv.prepend(h2Elem)
+
+  return categoryDiv
+}
 
 
 function getQuestionAndSubmission (questions, submissions) {
