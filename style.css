@@ -137,6 +137,19 @@ body {
   background-color: transparent;
 }
 
+.status.correct {
+  background-color: rgb(77, 171, 154, 0.5) /*#4DAB9A;*/
+  /* box-shadow: 0 1px 2px -1px rgb(0 0 0 / 50%); */
+}
+.status.partially-correct {
+  background-color: rgb(255, 220, 73, 0.5) /*#FFDC49;*/
+  /* box-shadow: 0 1px 2px -1px rgb(0 0 0 / 50%); */
+}
+.status.incorrect {
+  background-color: rgb(255, 115, 105, 0.5) /*#FF7369;*/
+  /* box-shadow: 0 1px 2px -1px rgb(0 0 0 / 50%); */
+
+}
 .question-name {
   grid-area: alias-q-name;
 
