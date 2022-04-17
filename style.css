@@ -105,7 +105,7 @@ body {
   font-size: 24px;
   line-height: 31px;
   user-select: none;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .category {
@@ -113,16 +113,16 @@ body {
 }
 
 .question {
-  margin-top: 8px;
+  margin-top: 10px;
   background-color: #fff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
 
   display: grid;
-  grid-template-rows: 38px;
+  grid-template-rows: 48px;
   align-items: center;
   grid-template-columns: repeat(7, 1fr);
   grid-template-areas: 
-    "alias-status alias-q-name alias-q-name . . . alias-dragger";
+    "alias-status alias-q-name alias-q-name alias-q-name alias-q-name . alias-dragger";
 }
 
 .status {
@@ -142,7 +142,7 @@ body {
 
   font-family: 'Lato', sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 1rem;
   line-height:21px;
   color: #00334c;
 }
