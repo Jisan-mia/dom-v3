@@ -28,6 +28,14 @@ main app coding
 import { questionsData } from "./data.js";
 import {submissionsData} from './data.js'
 
+const progressBar = document.querySelector('.progress-bar')
+const progressPercent = document.querySelector('.progress-percent');
+
+const totalQCount = document.getElementById('totalQCount');
+totalQCount.textContent = questionsData.length;
+const correctAnsCount = document.getElementById('correctAnsCount')
+let allCorrectCount = 0;
+
 appendQuestionAndSubmission();
 
 function appendQuestionAndSubmission() {
@@ -42,6 +50,14 @@ function appendQuestionAndSubmission() {
     const categoryDiv = createCategory(category, questions)
     wrapper.append(categoryDiv)
   }
+
+  const calculateProgressPercent = (allCorrectCount/questionsData.length) * 100
+
+  progressPercent.textContent = `${calculateProgressPercent.toFixed(2)}%`;
+
+  progressBar.style.width = calculateProgressPercent+'%'
+
+  correctAnsCount.textContent = allCorrectCount
 
 }
 
@@ -72,7 +88,8 @@ function createCategory(category, questions) {
     questionElm.append(draggerElm)
 
     if(question?.status == 'CORRECT') {
-      correctCount++
+      correctCount++;
+      allCorrectCount++;
     }
 
     categoryDiv.append(questionElm)
