@@ -115,12 +115,14 @@ body {
 .question {
   margin-top: 8px;
   background-color: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+
   display: grid;
   grid-template-rows: 38px;
   align-items: center;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-areas: 
-    "alias-status alias-q-name alias-q-name . . alias-dragger";
+    "alias-status alias-q-name alias-q-name . . . alias-dragger";
 }
 
 .status {
@@ -154,4 +156,8 @@ body {
   background: #11967e;
   border-radius: 0 4px 4px 0;
   cursor:grab;
+}
+
+.dragger-item:active {
+  cursor:grabbing;
 }
