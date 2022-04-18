@@ -52,10 +52,14 @@ function appendQuestionAndSubmission() {
   }
 
   const calculateProgressPercent = (allCorrectCount/questionsData.length) * 100
+  const progress = Math.round(calculateProgressPercent*100)/100
+  
+  progressPercent.textContent = `${progress}%`;
+  if(progress >= 48) {
+    progressPercent.style.color = '#fff'
+  }
 
-  progressPercent.textContent = `${calculateProgressPercent.toFixed(2)}%`;
-
-  progressBar.style.width = calculateProgressPercent+'%'
+  progressBar.style.width = progress+'%'
 
   correctAnsCount.textContent = allCorrectCount
 
