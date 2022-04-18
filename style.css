@@ -9,7 +9,7 @@
 body {
   /* font-family: 'Lato', sans-serif; */
   font-family: 'Ubuntu', sans-serif;
-  margin: 2% 3%;
+  margin: 1.5% 3%;
   background-color: #F6F9FC;
 }
 
@@ -97,6 +97,8 @@ body {
 
 /* wrapper styles */
 #wrapper {
+  padding-top: 2rem;
+
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 }
